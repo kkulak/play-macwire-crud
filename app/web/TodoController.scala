@@ -13,7 +13,7 @@ class TodoController extends Controller {
     Ok(Json.toJson(TodoService.findAll))
   }
 
-  def findOne(id: String) = Action {
+  def findOne(id: Long) = Action {
     TodoService.findOne(id) match {
       case None => BadRequest
       case Some(todo) => Ok(Json.toJson(todo))
@@ -31,7 +31,7 @@ class TodoController extends Controller {
     )
   }
 
-  def remove(id: String) = Action {
+  def remove(id: Long) = Action {
     TodoService.remove(id)
     NoContent
   }
