@@ -7,14 +7,14 @@ import service.TodoService
 import TodoForm._
 import Todo._
 
-class TodoController extends Controller {
+class TodoController(todoService: TodoService) extends Controller {
 
   def findAll = Action {
-    Ok(Json.toJson(TodoService.findAll))
+    Ok(Json.toJson(todoService.findAll))
   }
 
   def findOne(id: Long) = Action {
-    TodoService.findOne(id) match {
+    todoService.findOne(id) match {
       case None => BadRequest
       case Some(todo) => Ok(Json.toJson(todo))
     }
@@ -24,15 +24,12 @@ class TodoController extends Controller {
     val f = request.body.validate[TodoForm]
     f.fold(
       errors => BadRequest(JsError.toJson(errors)),
-      form => {
-        TodoService.create(form.content)
-        Ok
-      }
+      form => { todoService.create(form.content); Ok }
     )
   }
 
   def remove(id: Long) = Action {
-    TodoService.remove(id)
+    todoService.remove(id)
     NoContent
   }
 

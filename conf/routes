@@ -3,7 +3,7 @@
 # ~~~~
 
 # TodoController
-GET         /todos            web.TodoController.findAll
-POST        /todos            web.TodoController.create
-GET         /todos/:id        web.TodoController.findOne(id: Long)
-DELETE      /todos/:id        web.TodoController.remove(id: Long)
+GET         /todos            @web.TodoController.findAll
+POST        /todos            @web.TodoController.create
+GET         /todos/:id        @web.TodoController.findOne(id: Long)
+DELETE      /todos/:id        @web.TodoController.remove(id: Long)

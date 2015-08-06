@@ -8,7 +8,8 @@ scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
   "org.sorm-framework" % "sorm" % "0.3.18",
-  "com.h2database" % "h2" % "1.4.187"
+  "com.h2database" % "h2" % "1.4.187",
+  "com.softwaremill.macwire" % "macros_2.11" % "1.0.5"
 )
 
 // Play provides two styles of routers, one expects its actions to be injected, the
