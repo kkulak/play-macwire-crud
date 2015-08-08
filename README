@@ -1,4 +1,2 @@
-This is your new Play application
+Play 2.x / MacWire DI / SORM / SBT Todo REST CRUD
 =================================
-
-This file will be packaged with your application, when using `activator dist`.
