@@ -6,7 +6,8 @@ class Loader extends ApplicationLoader {
 
   override def load(context: Context): play.api.Application = {
     Logger.configure(context.environment)
-    (new BuiltInComponentsFromContext(context) with Application).application
+    (new BuiltInComponentsFromContext(context) with ApplicationModule).application
   }
 
 }
+

@@ -8,7 +8,7 @@ import router.Routes
 import service.ServiceModule
 import web.TodoController
 
-trait Application extends BuiltInComponents with ServiceModule with DbModule {
+trait ApplicationModule extends BuiltInComponents with ServiceModule with DbModule {
   lazy val assets: Assets = wire[Assets]
   lazy val router: Router = wire[Routes] withPrefix "/"
   lazy val todoCtrl: TodoController = wire[TodoController]
